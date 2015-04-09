@@ -28,6 +28,7 @@ angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 
       .state('tab', {
         url: "/tab",
         abstract: true,
+        controller: 'TabCtrl',
         templateUrl: "ng-templates/tabs.html"
       })
 
@@ -63,7 +64,7 @@ angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 
         }
       })
       .state('tab.friend-detail', {
-        url: '/friend/:friendId',
+        url: '/friends/:friendId',
         views: {
           'tab-friends': {
             templateUrl: 'ng-templates/friend-detail.html',
@@ -80,7 +81,7 @@ angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 
             controller: 'AccountCtrl'
           }
         }
-      })
+      });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/dash');
