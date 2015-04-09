@@ -5,11 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('Wonderland', ['ionic', 'Wonderland.controllers', 'Wonderland.services'])
+angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 'Wonderland.services'])
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-      StatusBar.styleDefault();
+      if(window.StatusBar) {
+              // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
     });
   })
 
@@ -40,6 +43,16 @@ angular.module('Wonderland', ['ionic', 'Wonderland.controllers', 'Wonderland.ser
         }
       })
 
+      .state('tab.chats', {
+        url: '/chats',
+        views: {
+          'tab-chats': {
+            templateUrl: 'ng-templates/tab-chats.html',
+            controller: 'ChatsCtrl'
+          }
+        }
+      })
+
       .state('tab.friends', {
         url: '/friends',
         views: {
@@ -63,7 +76,7 @@ angular.module('Wonderland', ['ionic', 'Wonderland.controllers', 'Wonderland.ser
         url: '/account',
         views: {
           'tab-account': {
-            templateUrl: 'ng-template/tab-account.html',
+            templateUrl: 'ng-templates/tab-account.html',
             controller: 'AccountCtrl'
           }
         }

@@ -24,7 +24,6 @@ var cssFilesToInject = [
 var jsFilesToInject = [
 
   // Load sails.io before everything else
-  'js/dependencies/sails.io.js',
   'js/dependencies/angular/angular.js',
   'js/dependencies/angular/**/*.js',
   'js/dependencies/ionic-v1.0.0-rc.2/ionic.js',

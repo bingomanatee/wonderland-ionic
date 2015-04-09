@@ -17,17 +17,11 @@ module.exports = function (grunt) {
   grunt.config.set('html2js',
     {
       app: {
-        src: 'assets/ng-templates/**.html',
-        dest: 'assets/ng-templates/templates.js',
+        src: 'ng-templates/**.html',
+        dest: 'assets/js/templates.js',
         options: {
-          base: 'assets/ng-templates',
-          module: 'cacheLoader',
-          rename: function(url){
-            return url.replace('assets/ng-templates/', '');
-          },
-        /*  bootstrap: function (module, script) {
-            return bootstrapTemplate({module: module, script: script.replace("'use strict';", ''), util: util})
-          } */
+          base: './',
+          module: 'cacheLoader'
         }
       }
     });

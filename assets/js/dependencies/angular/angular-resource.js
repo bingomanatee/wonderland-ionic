@@ -483,6 +483,7 @@ angular.module('ngResource', ['ng']).
 
 
       function resourceFactory(url, paramDefaults, actions, options) {
+        debugger;
         var route = new Route(url, options);
 
         actions = extend({}, provider.defaults.actions, actions);

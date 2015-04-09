@@ -23,4 +23,25 @@ angular.module('Wonderland.services', [])
         return friends[friendId];
       }
     }
-  });
+  })
+.factory('Chats', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var chats = [
+    { id: 0, user: 1, msg: 'foo is bar' },
+    { id: 1, user: 0, msg: 'foo is not bar'},
+    { id: 2, user: 1, msg: 'foo is foo' },
+    { id: 3, user: 2, msg: 'bar is bar' }
+  ];
+
+  return {
+    all: function() {
+      return chats;
+    },
+    get: function(chatId) {
+      // Simple index lookup
+      return chats[chatId];
+    }
+  }
+});

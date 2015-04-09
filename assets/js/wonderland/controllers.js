@@ -8,6 +8,10 @@ angular.module('Wonderland.controllers', [])
     console.log('fc');
     $scope.friends = Friends.all();
   })
+  .controller('ChatsCtrl', function($scope, Chats) {
+    console.log('cc');
+    $scope.chats = Chats.all();
+  })
 
   .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
     console.log('fdx');
