@@ -3,3 +3,21 @@ $mainColor: rgb(240, 255, 255);
 html {
   background-color: $mainColor
 }
+
+.wide-page {
+  .page-frame {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    .page-frame-head {
+      flex-grow: 1;
+      flex-basis: 250px;
+      padding: 1em;
+    }
+    .page-frame-body {
+      flex-grow: 4;
+      flex-basis: 400px;
+      padding: 2em;
+    }
+  }
+}

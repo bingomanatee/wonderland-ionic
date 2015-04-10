@@ -1,23 +1,4 @@
-angular.module('cacheLoader', ['ng-templates/chat-detail.html', 'ng-templates/friend-detail.html', 'ng-templates/tab-account.html', 'ng-templates/tab-chats.html', 'ng-templates/tab-dash.html', 'ng-templates/tab-friends.html', 'ng-templates/tabs.html']);
-
-angular.module("ng-templates/chat-detail.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("ng-templates/chat-detail.html",
-    "<!--\n" +
-    "  This template loads for the 'tab.friend-detail' state (app.js)\n" +
-    "  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)\n" +
-    "  The FriendsCtrl pulls data from the Friends service (service.js)\n" +
-    "  The Friends service returns an array of friend data\n" +
-    "-->\n" +
-    "<ion-view view-title=\"{{chat.name}}\">\n" +
-    "  <ion-content class=\"padding\">\n" +
-    "    <img ng-src=\"{{chat.face}}\" style=\"width: 64px; height: 64px\">\n" +
-    "    <p>\n" +
-    "      {{chat.lastText}}\n" +
-    "    </p>\n" +
-    "  </ion-content>\n" +
-    "</ion-view>\n" +
-    "");
-}]);
+angular.module('cacheLoader', ['ng-templates/friend-detail.html', 'ng-templates/stories-new.html', 'ng-templates/story-detail.html', 'ng-templates/tab-account.html', 'ng-templates/tab-dash.html', 'ng-templates/tab-friends.html', 'ng-templates/tab-stories.html', 'ng-templates/tabs.html']);
 
 angular.module("ng-templates/friend-detail.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("ng-templates/friend-detail.html",
@@ -39,6 +20,35 @@ angular.module("ng-templates/friend-detail.html", []).run(["$templateCache", fun
     "");
 }]);
 
+angular.module("ng-templates/stories-new.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("ng-templates/stories-new.html",
+    "<ion-view view-title=\"Create a Story\">\n" +
+    "  <ion-content>\n" +
+    "    <p>Create a story</p>\n" +
+    "  </ion-content>\n" +
+    "</ion-view>\n" +
+    "");
+}]);
+
+angular.module("ng-templates/story-detail.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("ng-templates/story-detail.html",
+    "<!--\n" +
+    "  This template loads for the 'tab.friend-detail' state (app.js)\n" +
+    "  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)\n" +
+    "  The FriendsCtrl pulls data from the Friends service (service.js)\n" +
+    "  The Friends service returns an array of friend data\n" +
+    "-->\n" +
+    "<ion-view view-title=\"{{chat.name}}\">\n" +
+    "  <ion-content class=\"padding\">\n" +
+    "    <img ng-src=\"{{chat.face}}\" style=\"width: 64px; height: 64px\">\n" +
+    "    <p>\n" +
+    "      {{chat.lastText}}\n" +
+    "    </p>\n" +
+    "  </ion-content>\n" +
+    "</ion-view>\n" +
+    "");
+}]);
+
 angular.module("ng-templates/tab-account.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("ng-templates/tab-account.html",
     "<ion-view view-title=\"Account\">\n" +
@@ -47,26 +57,6 @@ angular.module("ng-templates/tab-account.html", []).run(["$templateCache", funct
     "    <ion-toggle  ng-model=\"settings.enableFriends\">\n" +
     "        Enable Friends\n" +
     "    </ion-toggle>\n" +
-    "    </ion-list>\n" +
-    "  </ion-content>\n" +
-    "</ion-view>\n" +
-    "");
-}]);
-
-angular.module("ng-templates/tab-chats.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("ng-templates/tab-chats.html",
-    "<ion-view view-title=\"Chats\">\n" +
-    "  <ion-content>\n" +
-    "    <ion-list>\n" +
-    "      <ion-item class=\"item-remove-animate item-avatar item-icon-right\" ng-repeat=\"chat in chats\" type=\"item-text-wrap\" href=\"#/tab/chats/{{chat.id}}\">\n" +
-    "        <h2>{{chat.msg}}</h2>\n" +
-    "        <p>{{chat.user }}</p>\n" +
-    "        <i class=\"icon ion-chevron-right icon-accessory\"></i>\n" +
-    "\n" +
-    "        <ion-option-button class=\"button-assertive\" ng-click=\"remove(chat)\">\n" +
-    "          Delete\n" +
-    "        </ion-option-button>\n" +
-    "      </ion-item>\n" +
     "    </ion-list>\n" +
     "  </ion-content>\n" +
     "</ion-view>\n" +
@@ -128,6 +118,37 @@ angular.module("ng-templates/tab-friends.html", []).run(["$templateCache", funct
     "");
 }]);
 
+angular.module("ng-templates/tab-stories.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("ng-templates/tab-stories.html",
+    "<ion-view view-title=\"Stories\">\n" +
+    "  <ion-content>\n" +
+    "    <div class=\"page-frame\">\n" +
+    "      <div class=\"page-frame-head\">\n" +
+    "        <a type=\"button\" class=\"button button-full button-assertive\" href=\"#/tab/stories-new\">\n" +
+    "          Add a Story\n" +
+    "        </a>\n" +
+    "      </div>\n" +
+    "      <div class=\"page-frame-body\">\n" +
+    "        <ion-list>\n" +
+    "          <ion-item class=\"item-remove-animate item-avatar item-icon-right\" ng-repeat=\"story in stories\"\n" +
+    "                    type=\"item-text-wrap\" href=\"#/tab/stories/{{story.id}}\">\n" +
+    "            <h2>{{story.title}}</h2>\n" +
+    "\n" +
+    "            <p>{{story.description }}</p>\n" +
+    "            <i class=\"icon ion-chevron-right icon-accessory\"></i>\n" +
+    "\n" +
+    "            <ion-option-button class=\"button-assertive\" ng-click=\"remove(story)\">\n" +
+    "              Delete\n" +
+    "            </ion-option-button>\n" +
+    "          </ion-item>\n" +
+    "        </ion-list>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </ion-content>\n" +
+    "</ion-view>\n" +
+    "");
+}]);
+
 angular.module("ng-templates/tabs.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("ng-templates/tabs.html",
     "<!--\n" +
@@ -136,7 +157,6 @@ angular.module("ng-templates/tabs.html", []).run(["$templateCache", function($te
     "navigation history that also transitions its views in and out.\n" +
     "-->\n" +
     "\n" +
-    "<p>tab_classes: {{ tab_classes }}</p>\n" +
     "<ion-tabs class=\"{{ tab_classes }}\">\n" +
     "Tabs\n" +
     "  <!-- Dashboard Tab -->\n" +
@@ -145,8 +165,8 @@ angular.module("ng-templates/tabs.html", []).run(["$templateCache", function($te
     "  </ion-tab>\n" +
     "\n" +
     "  <!-- Chats Tab -->\n" +
-    "  <ion-tab title=\"Chats\" icon-off=\"ion-ios-chatboxes-outline\" icon-on=\"ion-ios-chatboxes\" href=\"#/tab/chats\">\n" +
-    "    <ion-nav-view name=\"tab-chats\"></ion-nav-view>\n" +
+    "  <ion-tab title=\"Stories\" icon-off=\"ion-ios-analytics-outline\" icon-on=\"ion-ios-analytics\" href=\"#/tab/stories\">\n" +
+    "    <ion-nav-view name=\"tab-stories\"></ion-nav-view>\n" +
     "  </ion-tab>\n" +
     "\n" +
     "  <!-- Friends Tab -->\n" +

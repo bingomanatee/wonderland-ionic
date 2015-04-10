@@ -67,26 +67,39 @@ angular.module('Wonderland.services', [])
 
     return subscriber;
   }])
-  .factory('Chats', function () {
+  .factory('Stories', function () {
     // Might use a resource here that returns a JSON array
 
     // Some fake testing data
-    var chats = [
-      {id: 0, user: 1, msg: 'foo is bar'},
-      {id: 1, user: 0, msg: 'foo is not bar'},
-      {id: 2, user: 1, msg: 'foo is foo'},
-      {id: 3, user: 2, msg: 'bar is bar'}
+    var stories = [
     ];
 
-    return {
+    var id = 0;
+
+    var Stories = {
       all: function () {
-        return chats;
+        return stories;
       },
       get: function (chatId) {
         // Simple index lookup
-        return chats[chatId];
+        return stories[chatId];
+      },
+      newStory: function(title, description){
+        return {
+          title: title || '',
+          description: description || '',
+          user: 3,
+          id: ++id
+        }
       }
-    }
+    };
+
+    stories.push(Stories.newStory('Alpha Story', 'An alpha story'));
+    stories.push(Stories.newStory('Beta Story', 'An beta story'));
+    stories.push(Stories.newStory('Gamma Story', 'An gamma story'));
+    stories.push(Stories.newStory('Delta Story', 'An delta story'));
+
+    return Stories;
   })
   .service('EventEmitter', function () {
     var util = angular;

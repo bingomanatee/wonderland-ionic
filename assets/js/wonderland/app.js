@@ -44,12 +44,22 @@ angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 
         }
       })
 
-      .state('tab.chats', {
-        url: '/chats',
+      .state('tab.stories', {
+        url: '/stories',
         views: {
-          'tab-chats': {
-            templateUrl: 'ng-templates/tab-chats.html',
-            controller: 'ChatsCtrl'
+          'tab-stories': {
+            templateUrl: 'ng-templates/tab-stories.html',
+            controller: 'StoriesCtrl'
+          }
+        }
+      })
+
+      .state('tab.stories-new', {
+        url: '/stories-new',
+        views: {
+          'tab-stories': {
+            templateUrl: 'ng-templates/stories-new.html',
+            controller: 'StoriesNewCtrl'
           }
         }
       })
