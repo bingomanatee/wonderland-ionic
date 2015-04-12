@@ -43,9 +43,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   , '/test/base': {
-    view: 'mocha/baseTest',
+    view: 'mocha/manifest',
     locals: {
-      testScript: '/tests/mocha/base.js', layout: 'layout-mocha'
+     layout: 'layout-mocha'
     }
   }
 
