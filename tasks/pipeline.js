@@ -31,6 +31,11 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
+
+  'js/wonderland/app.js',
+  'js/wonderland/controller.js',
+  'js/wonderland/services.js',
+  'js/wonderland/**/*.js',
   'ng-templates/templates.js',
 
   // All of the rest of your client-side js files

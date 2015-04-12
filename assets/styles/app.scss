@@ -4,20 +4,57 @@ html {
   background-color: $mainColor
 }
 
+.one-line {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .wide-page {
+  .web-only {
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
   .page-frame {
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
     .page-frame-head {
+      padding: 0.5em;
       flex-grow: 1;
       flex-basis: 250px;
-      padding: 1em;
+      .button-full, .button-full > .button {
+        border-width: 1px;
+
+      }
     }
     .page-frame-body {
       flex-grow: 4;
       flex-basis: 400px;
-      padding: 2em;
     }
   }
+  .form-list {
+    max-width: 500px;
+  }
+}
+
+.web-only {
+  display: none;
+}
+.even-rows {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  .part {
+    flex-grow: 1;
+  }
+  .thirds {
+    flex-basis: 150px;
+ }
+ .halves {
+   flex-basis: 225px;
+ }
 }

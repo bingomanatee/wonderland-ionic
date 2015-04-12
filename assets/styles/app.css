@@ -1,17 +1,43 @@
 html {
   background-color: azure; }
 
+.one-line {
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.wide-page .web-only {
+  display: block; }
+.wide-page .mobile-only {
+  display: none; }
 .wide-page .page-frame {
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start; }
   .wide-page .page-frame .page-frame-head {
+    padding: 0.5em;
     flex-grow: 1;
-    flex-basis: 250px;
-    padding: 1em; }
+    flex-basis: 250px; }
+    .wide-page .page-frame .page-frame-head .button-full, .wide-page .page-frame .page-frame-head .button-full > .button {
+      border-width: 1px; }
   .wide-page .page-frame .page-frame-body {
     flex-grow: 4;
-    flex-basis: 400px;
-    padding: 2em; }
+    flex-basis: 400px; }
+.wide-page .form-list {
+  max-width: 500px; }
+
+.web-only {
+  display: none; }
+
+.even-rows {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start; }
+  .even-rows .part {
+    flex-grow: 1; }
+  .even-rows .thirds {
+    flex-basis: 150px; }
+  .even-rows .halves {
+    flex-basis: 225px; }
 
 /*# sourceMappingURL=app.css.map */

@@ -4,6 +4,14 @@
  * --------------------------------------------------
  */
 
+.item-stacked-label.item-select {
+  select {
+    position: relative;
+    top: auto;
+    padding: ($item-padding - 2)/2 ($item-padding * 3) ($item-padding) $item-padding;
+  }
+}
+
 .item-select {
   position: relative;
 

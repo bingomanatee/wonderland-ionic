@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="/mocha/mocha.css"/>
+  <script language="JavaScript">
+    var mochaTests = true; // a flag to stop the UI of ionic from being triggered
+  </script>
+</head>
+<body>
+<div id="mocha"></div>
+
+<!-- must manually sync scripts -->
+<script src="/js/dependencies/angular/angular.js"></script>
+<script src="/js/dependencies/angular/angular-animate.js"></script>
+<script src="/js/dependencies/angular/angular-resource.js"></script>
+<script src="/js/dependencies/angular/angular-sanitize.js"></script>
+<script src="/js/dependencies/angular/angular-ui-router.js"></script>
+<script src="/js/dependencies/angular/angular-ui/angular-ui-router.min.js"></script>
+<script src="/js/dependencies/ionic-v1.0.0-rc.2/ionic.js"></script>
+<script src="/js/dependencies/ionic-v1.0.0-rc.2/ionic-angular.js"></script>
+<script src="/js/dependencies/ionic-v1.0.0-rc.2/version.json"></script>
+<script src="/js/wonderland/app.js"></script>
+<script src="/js/wonderland/services.js"></script>
+<script src="/js/wonderland/controllers.js"></script>
+<script src="/js/wonderland/controllers/StoriesNewCtrl.js"></script>
+<script src="/js/wonderland/models/Friends.js"></script>
+<script src="/js/wonderland/models/Stories.js"></script>
+<script src="/js/wonderland/services/EventEmitter.js"></script>
+<script src="/js/wonderland/services/SizeWatcher.js"></script>
+<script src="/js/templates.js"></script>
+<!--end manual sync -->
+
+<script src="/mocha/mocha.js"></script>
+<script src="/mocha/should.js"></script>
+<script src="/mocha/expect.js"></script>
+<script>mocha.setup('bdd')</script>
+
+<%- body %>
+
+<script>
+  mocha.checkLeaks();
+  mocha.globals(['jQuery']);
+  mocha.run();
+</script>
+</body>
+</html>

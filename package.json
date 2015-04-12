@@ -39,6 +39,8 @@
   "devDependencies": {
     "grunt-angular-templates": "^0.5.7",
     "grunt-html2js": "^0.3.1",
-    "grunt-pure-grids": "^1.0.2"
+    "grunt-pure-grids": "^1.0.2",
+    "mocha": "^2.2.4",
+    "should": "^5.2.0"
   }
 }

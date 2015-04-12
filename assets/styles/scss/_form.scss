@@ -33,13 +33,13 @@ select,
 textarea {
   @include font-shorthand($font-size-base, normal, $line-height-base); // Set size, weight, line-height here
 }
+
 input,
 button,
 select,
 textarea {
   font-family: $font-family-base; // And only set font-family here for those that need it (note the missing label element)
 }
-
 
 // Input List
 // -------------------------------
@@ -133,20 +133,29 @@ textarea {
   background-color: transparent;
   box-shadow: none;
 
-  .input-label, .icon {
-    display: inline-block;
+  .input-label {
+    display: block;
     padding: 4px 0 0 0px;
     vertical-align: middle;
   }
+  .icon {
+    display: inline-block;
+  }
+}
+
+.item-stacked-label select {
+  width: 100%
 }
 
 .item-stacked-label input,
+.item-stacked-label select,
 .item-stacked-label textarea {
   @include border-radius(2px);
   padding: 4px 8px 3px 0;
   border: none;
   background-color: $input-bg;
 }
+
 .item-stacked-label input {
   overflow: hidden;
   height: $line-height-computed + $font-size-base + 12px;
@@ -171,7 +180,6 @@ textarea {
     }
   }
 }
-
 
 // Form Controls
 // -------------------------------
@@ -283,14 +291,12 @@ input[type="file"] {
   width: 200px;
 }
 
-
 // Placeholder
 // -------------------------------
 input,
 textarea {
   @include placeholder();
 }
-
 
 // DISABLED STATE
 // -------------------------------
@@ -305,6 +311,7 @@ select[readonly] {
   background-color: $input-bg-disabled;
   cursor: not-allowed;
 }
+
 // Explicitly reset the colors here
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
