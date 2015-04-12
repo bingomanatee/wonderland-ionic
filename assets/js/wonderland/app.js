@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 'Wonderland.services'])
-
-  .run(function($ionicPlatform) {
+var wl = angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 'Wonderland.services'])
+if (typeof mochaTests == undefined)
+  wl.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       if(window.StatusBar) {
               // org.apache.cordova.statusbar required

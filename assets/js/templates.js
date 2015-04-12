@@ -22,9 +22,53 @@ angular.module("ng-templates/friend-detail.html", []).run(["$templateCache", fun
 
 angular.module("ng-templates/stories-new.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("ng-templates/stories-new.html",
-    "<ion-view view-title=\"Create a Story\">\n" +
+    "<ion-view view-title=\"Stories::New\">\n" +
     "  <ion-content>\n" +
-    "    <p>Create a story</p>\n" +
+    "    <div class=\"page-frame\">\n" +
+    "      <div class=\"page-frame-head\">\n" +
+    "        <div class=\"web-only\">\n" +
+    "          <button class=\"button button-full button-assertive\" ng-click=\"saveStory()\">\n" +
+    "            Create Story\n" +
+    "          </button>\n" +
+    "          <a class=\"button button-full \" href=\"#/tab/stories\">\n" +
+    "            Cancel\n" +
+    "          </a>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"page-frame-body\">\n" +
+    "        <ion-list class=\"form-list\">\n" +
+    "          <label class=\"item item-input item-stacked-label\">\n" +
+    "            <span class=\"input-label\">Title</span>\n" +
+    "            <input type=\"text\" required min=\"4\" placeholder=\"Title\" ng-model=\"newStory.title\">\n" +
+    "          </label>\n" +
+    "          <label class=\"item item-input item-stacked-label\">\n" +
+    "            <span class=\"input-label\">Description</span>\n" +
+    "            <textarea required rows=\"10\" placeholder=\"Description\" ng-model=\"newStory.description\"></textarea>\n" +
+    "          </label>\n" +
+    "          <label class=\"item item-input item-stacked-label item-select\">\n" +
+    "            <span class=\"input-label\">Genre</span>\n" +
+    "            <select ng-model=\"newStory.genre\"\n" +
+    "                    ng-options=\"id as label for (id, label) in genres\">\n" +
+    "            </select>\n" +
+    "          </label>\n" +
+    "        </ion-list>\n" +
+    "        <div class=\"even-rows mobile-only\">\n" +
+    "          <div class=\"part halves\">\n" +
+    "            <button class=\"button button-full button-assertive\" ng-click=\"saveStory()\">\n" +
+    "              Create Story\n" +
+    "            </button>\n" +
+    "          </div>\n" +
+    "          <div class=\"part halves\">\n" +
+    "            <a class=\"button button-full part\" href=\"#/tab/stories\">\n" +
+    "              Cancel\n" +
+    "            </a>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <pre>\n" +
+    "      {{ newStory | json }}\n" +
+    "    </pre>\n" +
     "  </ion-content>\n" +
     "</ion-view>\n" +
     "");
@@ -134,7 +178,7 @@ angular.module("ng-templates/tab-stories.html", []).run(["$templateCache", funct
     "                    type=\"item-text-wrap\" href=\"#/tab/stories/{{story.id}}\">\n" +
     "            <h2>{{story.title}}</h2>\n" +
     "\n" +
-    "            <p>{{story.description }}</p>\n" +
+    "            <p one-line><b>{{ story.created | date: 'MMM d, yy' }} -- </b> {{story.description }}</p>\n" +
     "            <i class=\"icon ion-chevron-right icon-accessory\"></i>\n" +
     "\n" +
     "            <ion-option-button class=\"button-assertive\" ng-click=\"remove(story)\">\n" +

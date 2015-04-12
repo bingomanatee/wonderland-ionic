@@ -1,5 +1,49 @@
-<ion-view view-title="Create a Story">
+<ion-view view-title="Stories::New">
   <ion-content>
-    <p>Create a story</p>
+    <div class="page-frame">
+      <div class="page-frame-head">
+        <div class="web-only">
+          <button class="button button-full button-assertive" ng-click="saveStory()">
+            Create Story
+          </button>
+          <a class="button button-full " href="#/tab/stories">
+            Cancel
+          </a>
+        </div>
+      </div>
+      <div class="page-frame-body">
+        <ion-list class="form-list">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Title</span>
+            <input type="text" required min="4" placeholder="Title" ng-model="newStory.title">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Description</span>
+            <textarea required rows="10" placeholder="Description" ng-model="newStory.description"></textarea>
+          </label>
+          <label class="item item-input item-stacked-label item-select">
+            <span class="input-label">Genre</span>
+            <select ng-model="newStory.genre"
+                    ng-options="id as label for (id, label) in genres">
+            </select>
+          </label>
+        </ion-list>
+        <div class="even-rows mobile-only">
+          <div class="part halves">
+            <button class="button button-full button-assertive" ng-click="saveStory()">
+              Create Story
+            </button>
+          </div>
+          <div class="part halves">
+            <a class="button button-full part" href="#/tab/stories">
+              Cancel
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pre>
+      {{ newStory | json }}
+    </pre>
   </ion-content>
 </ion-view>

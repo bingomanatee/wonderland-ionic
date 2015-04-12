@@ -9,9 +9,6 @@ angular.module('Wonderland.controllers', [])
   .controller('StoriesCtrl', ['$scope', 'Stories', function ($scope, Stories) {
     $scope.stories = Stories.all();
   }])
-  .controller('StoriesNewCtrl', ['$scope', 'Stories', function ($scope, Stories) {
-   // $scope.newStory = Stories.newStory();
-  }])
   .controller('FriendDetailCtrl', function ($scope, $stateParams, Friends) {
     $scope.friend = Friends.get($stateParams.friendId);
   })
@@ -26,7 +23,7 @@ angular.module('Wonderland.controllers', [])
         'tabs-positive',
         SizeWatcher.size().w > PHONE_WIDTH ? 'tabs-top wide-page' : ''
       ].join(' ');
-    };
+    }
 
     $scope.tab_classes = _tabClasses();
 
