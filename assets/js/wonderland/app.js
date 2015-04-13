@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 var wl = angular.module('Wonderland', ['ionic', 'cacheLoader', 'Wonderland.controllers', 'Wonderland.services'])
-if (typeof mochaTests == undefined)
+if (typeof mochaTests == 'undefined')
   wl.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       if(window.StatusBar) {

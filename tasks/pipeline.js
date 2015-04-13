@@ -24,8 +24,8 @@ var cssFilesToInject = [
 var jsFilesToInject = [
 
   // Load sails.io before everything else
-  'js/dependencies/angular/angular.js',
-  'js/dependencies/angular/**/*.js',
+  'js/dependencies/angular-1.3.13/angular.min.js',
+  'js/dependencies/angular-1.3.13/*.js',
   'js/dependencies/ionic-v1.0.0-rc.2/ionic.js',
   'js/dependencies/ionic-v1.0.0-rc.2/*',
 
@@ -33,10 +33,10 @@ var jsFilesToInject = [
   'js/dependencies/**/*.js',
 
   'js/wonderland/app.js',
-  'js/wonderland/controller.js',
+  'js/wonderland/controllers.js',
   'js/wonderland/services.js',
   'js/wonderland/**/*.js',
-  'ng-templates/templates.js',
+  'js/templates.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

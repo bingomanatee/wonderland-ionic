@@ -16,7 +16,7 @@ angular.module('Wonderland.services')
       var out = [];
 
       var index = Math.floor(Ranom() * data.length);
-
+      debugger;
       while (out.length < lines) {
         out.push(data[index % data.length]);
         ++index;

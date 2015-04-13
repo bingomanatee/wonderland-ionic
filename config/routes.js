@@ -42,7 +42,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  , '/test/base': {
+  , '/test/mocha': {
     view: 'mocha/manifest',
     locals: {
      layout: 'layout-mocha'
